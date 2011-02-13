@@ -45,7 +45,17 @@ class SitesController < ApplicationController
     @site = Site.new(params[:site])
 
     respond_to do |format|
-      if @site.save
+      existing_site = Site.find_by_url(@site.url)
+      if (existing_site)
+        @site = existing_site
+        @site.number_of_submissions = @site.number_of_submissions + 1
+      end
+        if @site.save
+        submission = Submission.new
+        submission.user_id = current_user.id
+        submission.site_id = @site.id
+        submission.save
+
         format.html { redirect_to(@site, :notice => 'Site was successfully created.') }
         format.xml  { render :xml => @site, :status => :created, :location => @site }
       else
