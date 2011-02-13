@@ -1,5 +1,11 @@
 Novoorigo::Application.routes.draw do
   
+  resources :sites, :only => [ :new, :create, :show ]
+
+  get "home/index"
+
+  devise_for :users
+
   root :to => "home#index"
   
   # The priority is based upon order of creation:

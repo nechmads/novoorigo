@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Novoorigo</title>
-  <%= stylesheet_link_tag :all %>
+  <title>Novo Origo - The Curated Search Engine</title>
+  <%= render 'layouts/stylesheets' %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
 </head>
 <body>
-
-<%= yield %>
-
+	<div class="container" >
+		<%= render 'layouts/header' %>
+		<div id="content" class="round">
+			
+			<% flash.each do | key, value| %>
+			<%= content_tag(:div, value, :class => "flash #{key}") %>
+			<% end %>
+			<%= yield %>
+		</div>
+		<%= render 'layouts/footer' %>
+	</div>
 </body>
 </html>
