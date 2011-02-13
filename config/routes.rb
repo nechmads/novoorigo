@@ -1,4 +1,4 @@
-Novoorigo::Application.routes.draw do
+Novoorigo::Application.routes.draw do |map|
   
   resources :sites, :only => [ :new, :create, :show ]
 
@@ -6,6 +6,9 @@ Novoorigo::Application.routes.draw do
 
   devise_for :users
 
+  map.about '/about' , :controller => 'pages' , :action => 'about'
+  map.guidelines '/guidelines' , :controller => 'pages' , :action => 'guidelines'
+  
   root :to => "home#index"
   
   # The priority is based upon order of creation:
