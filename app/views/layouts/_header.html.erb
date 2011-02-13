@@ -1,6 +1,7 @@
 <div id="header" class="round">
 	<ul class="navigation round" >
 		<li><%= link_to "Home", root_path %></li>
+		<li><%= link_to "About", about_path %>
 		<% if user_signed_in? %>
 			<li><%= link_to "Sign out", destroy_user_session_path %></li>
 			<li><%= link_to "Submit Site", new_site_path %></li>
@@ -9,6 +10,6 @@
 			<li><%= link_to "Sign in", new_user_session_path %></li>
 		<% end %>
 	</ul>
-	<div class="title">Kikaros - The curated search experience</div>
+	<div class="title">Kikaros - The community curated search experience</div>
 </div>
 <div style="clear:both">

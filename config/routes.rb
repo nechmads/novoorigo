@@ -9,6 +9,8 @@ Novoorigo::Application.routes.draw do |map|
   map.about '/about' , :controller => 'pages' , :action => 'about'
   map.guidelines '/guidelines' , :controller => 'pages' , :action => 'guidelines'
   
+  map.about '/test' , :controller => 'pages' , :action => 'test'
+  
   root :to => "home#index"
   
   # The priority is based upon order of creation:

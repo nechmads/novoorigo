@@ -19,10 +19,11 @@
     <%= f.label :url %><br />
     <%= f.text_field :url %>
   </div>
-  <div class="field">
-    <%= f.label :category %><br />
-    <%= f.text_field :category %>
-  </div>
+<div class="field">
+	<%= f.label :category %><br />
+	<%= f.select(:category, [['code', 'code'], ['tech', 'tech'], ['travel', 'travel'], ['shopping', 'shopping'], ['social', 'social'], 	['news', 'news']]) %>
+</div>
+<br />
   <div class="actions">
     <%= f.submit %>
   </div>
